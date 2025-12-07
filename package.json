@@ -11,10 +11,11 @@
     "build": "tsc -p 03-development/config/tsconfig.json && vite build --config 03-development/config/vite.config.ts && tsc -p 03-development/config/tsconfig.node.json",
     "build:electron": "electron-builder",
     "preview": "vite preview --config 03-development/config/vite.config.ts",
-    "test": "echo \"Tests will be added per increment\" && exit 0",
-    "test:unit": "echo \"Unit tests will be added\" && exit 0",
-    "test:integration": "echo \"Integration tests will be added\" && exit 0",
-    "test:coverage": "echo \"Coverage will be added\" && exit 0",
+    "test": "vitest run --config 03-development/config/vitest.config.ts",
+    "test:watch": "vitest --config 03-development/config/vitest.config.ts",
+    "test:unit": "vitest run --config 03-development/config/vitest.config.ts",
+    "test:integration": "vitest run --config 03-development/config/vitest.config.ts",
+    "test:coverage": "vitest run --coverage --config 03-development/config/vitest.config.ts",
     "lint": "echo \"Linting will be configured\" && exit 0",
     "format": "echo \"Formatting will be configured\" && exit 0",
     "type-check": "tsc --noEmit -p 03-development/config/tsconfig.json"
@@ -29,16 +30,27 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "electron": "^39.2.6",
     "electron-builder": "^26.0.12",
+    "jsdom": "^27.0.1",
+    "postcss": "^8.4.49",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.9.3",
-    "vite": "^7.2.6"
+    "vite": "^7.2.6",
+    "vitest": "^4.0.15"
+  },
+  "dependencies": {
+    "react-resizable-panels": "^3.0.6"
   }
 }

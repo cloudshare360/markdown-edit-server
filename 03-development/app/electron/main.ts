@@ -1,12 +1,12 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain, dialog } from 'electron';
 import path from 'path';
 
 let mainWindow: BrowserWindow | null = null;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -26,6 +26,18 @@ function createWindow() {
     mainWindow = null;
   });
 }
+
+// IPC Handlers
+ipcMain.handle('dialog:openDirectory', async () => {
+  if (!mainWindow) return { canceled: true, filePaths: [] };
+  
+  const result = await dialog.showOpenDialog(mainWindow, {
+    properties: ['openDirectory'],
+    title: 'Select Workspace Folder',
+  });
+  
+  return result;
+});
 
 app.whenReady().then(() => {
   createWindow();
