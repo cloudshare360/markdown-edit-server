@@ -1,0 +1,76 @@
+{
+  "decisions": [
+    {
+      "id": "DEC001",
+      "date": "2025-12-07",
+      "timestamp": "2025-12-07T09:30:00Z",
+      "category": "process",
+      "title": "Adopt SDLC-compliant workspace structure",
+      "context": "Need a maintainable layout for 35 incremental executions with clear separation of requirements, planning, development, testing, deployment, and project management artifacts.",
+      "problem": "Existing flat workspace mixed code and documents, making automation and tracking difficult.",
+      "options": [
+        {
+          "name": "Flat repo with ad-hoc folders",
+          "pros": ["Minimal changes"],
+          "cons": ["Hard to track artifacts", "Poor agent navigation", "Config path confusion"],
+          "score": 2
+        },
+        {
+          "name": "SDLC 6-phase structure (01-06)",
+          "pros": ["Clear separation by lifecycle", "Predictable paths for agents", "Easier compliance/tracking"],
+          "cons": ["Requires path updates"],
+          "score": 9
+        }
+      ],
+      "decision": "Adopt SDLC 6-phase structure and relocate code/config accordingly.",
+      "rationale": "Maximizes clarity for agents and humans, supports incremental development, and aligns with SDLC best practices.",
+      "tradeoffs": "Temporary overhead to update configs and scripts.",
+      "stakeholders": ["user", "agent"],
+      "status": "implemented",
+      "impactedFeatures": ["F001"],
+      "impactedIncrements": ["INC-0.1"],
+      "relatedDecisions": [],
+      "reviewers": [],
+      "reversible": true,
+      "reversalCost": "medium",
+      "implementationNotes": "Updated package scripts, Vite/TS configs, and created per-phase READMEs.",
+      "followUpActions": [
+        "Smoke test npm run dev to validate path changes"
+      ]
+    }
+  ],
+  "metadata": {
+    "totalDecisions": 1,
+    "lastDecisionDate": "2025-12-07"
+  },
+  "template": {
+    "id": "DEC###",
+    "date": "2025-12-07",
+    "timestamp": "2025-12-07T00:00:00Z",
+    "category": "architecture|technology|design|process",
+    "title": "Decision Title",
+    "context": "Why this decision was needed",
+    "problem": "Problem being solved",
+    "options": [
+      {
+        "name": "Option A",
+        "pros": ["Pro 1", "Pro 2"],
+        "cons": ["Con 1", "Con 2"],
+        "score": 0
+      }
+    ],
+    "decision": "Chosen option",
+    "rationale": "Why this option was chosen",
+    "tradeoffs": "What was sacrificed",
+    "stakeholders": [],
+    "status": "proposed|approved|implemented|deprecated",
+    "impactedFeatures": [],
+    "impactedIncrements": [],
+    "relatedDecisions": [],
+    "reviewers": [],
+    "reversible": true,
+    "reversalCost": "low|medium|high",
+    "implementationNotes": "",
+    "followUpActions": []
+  }
+}

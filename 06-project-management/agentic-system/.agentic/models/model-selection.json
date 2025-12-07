@@ -1,0 +1,248 @@
+{
+  "modelRecommendations": {
+    "primary": {
+      "model": "claude-sonnet-4",
+      "provider": "Anthropic",
+      "reasoning": "Best for systematic, multi-step development with extensive context handling (200K tokens). Excellent at following structured incremental plans and maintaining code quality.",
+      "strengths": [
+        "Superior context retention across 35 increments",
+        "Excellent TypeScript/React code generation",
+        "Strong at following systematic development plans",
+        "Best test generation capabilities",
+        "Handles complex file operations reliably"
+      ],
+      "costEfficiency": "High",
+      "speed": "Fast",
+      "useFor": [
+        "INCREMENT 0.x: Project bootstrap",
+        "INCREMENT 1.x: File explorer implementation",
+        "INCREMENT 2.x: Editor integration",
+        "INCREMENT 3.x: Preview & TOC",
+        "Complex component development",
+        "Integration testing"
+      ],
+      "contextWindow": "200K tokens",
+      "estimatedCostPer15Min": "$0.15-0.30"
+    },
+    "secondary": {
+      "model": "gpt-4-turbo",
+      "provider": "OpenAI",
+      "reasoning": "Excellent alternative for rapid prototyping and UI/UX implementation. Strong at React patterns and modern JavaScript.",
+      "strengths": [
+        "Fast response times",
+        "Great at UI/UX implementation",
+        "Strong React component patterns",
+        "Good at Tailwind CSS styling",
+        "Reliable code completion"
+      ],
+      "costEfficiency": "Medium",
+      "speed": "Very Fast",
+      "useFor": [
+        "INCREMENT 0.3: Tailwind CSS setup",
+        "INCREMENT 4.x: File operations UI",
+        "Quick styling iterations",
+        "Component refinements",
+        "UI polish phases"
+      ],
+      "contextWindow": "128K tokens",
+      "estimatedCostPer15Min": "$0.20-0.40"
+    },
+    "specialized": {
+      "model": "gpt-4o",
+      "provider": "OpenAI",
+      "reasoning": "Best for final polish, optimization, and performance tuning. Excellent at code review and refactoring.",
+      "strengths": [
+        "Superior code optimization",
+        "Excellent refactoring capabilities",
+        "Strong performance analysis",
+        "Best for code review",
+        "Great at identifying bottlenecks"
+      ],
+      "costEfficiency": "Medium-High",
+      "speed": "Fast",
+      "useFor": [
+        "INCREMENT 6.x: Performance optimization",
+        "Code review and refactoring",
+        "Memory leak detection",
+        "Performance profiling",
+        "Final quality assurance"
+      ],
+      "contextWindow": "128K tokens",
+      "estimatedCostPer15Min": "$0.25-0.45"
+    },
+    "costOptimized": {
+      "model": "claude-3.5-sonnet",
+      "provider": "Anthropic",
+      "reasoning": "Budget-friendly option for simpler increments and testing phases. Still maintains high quality.",
+      "strengths": [
+        "Lower cost per request",
+        "Fast inference",
+        "Good code quality",
+        "Reliable for straightforward tasks",
+        "Excellent for testing"
+      ],
+      "costEfficiency": "Very High",
+      "speed": "Very Fast",
+      "useFor": [
+        "Unit test generation",
+        "Simple component updates",
+        "Documentation writing",
+        "Bug fixes",
+        "Minor refactoring"
+      ],
+      "contextWindow": "200K tokens",
+      "estimatedCostPer15Min": "$0.05-0.15"
+    }
+  },
+  "autoSelectionRules": {
+    "description": "Automatic model selection based on increment characteristics",
+    "rules": [
+      {
+        "condition": "phase === 'bootstrap' || phase === 'setup'",
+        "model": "claude-sonnet-4",
+        "reason": "Critical foundation requires highest reliability"
+      },
+      {
+        "condition": "incrementType === 'complex-integration'",
+        "model": "claude-sonnet-4",
+        "reason": "Complex logic needs superior reasoning"
+      },
+      {
+        "condition": "incrementType === 'ui-styling'",
+        "model": "gpt-4-turbo",
+        "reason": "Fast UI iteration with strong React patterns"
+      },
+      {
+        "condition": "incrementType === 'testing'",
+        "model": "claude-3.5-sonnet",
+        "reason": "Cost-effective for test generation"
+      },
+      {
+        "condition": "incrementType === 'optimization' || incrementType === 'performance'",
+        "model": "gpt-4o",
+        "reason": "Best for performance analysis and optimization"
+      },
+      {
+        "condition": "incrementType === 'simple-component'",
+        "model": "claude-3.5-sonnet",
+        "reason": "Cost-effective for straightforward tasks"
+      },
+      {
+        "condition": "incrementType === 'documentation'",
+        "model": "claude-3.5-sonnet",
+        "reason": "Cost-effective for documentation"
+      },
+      {
+        "condition": "incrementType === 'refactoring'",
+        "model": "gpt-4o",
+        "reason": "Superior refactoring capabilities"
+      }
+    ],
+    "fallbackModel": "claude-sonnet-4",
+    "fallbackReason": "Most reliable all-purpose model"
+  },
+  "phaseRecommendations": {
+    "phase0_bootstrap": {
+      "primaryModel": "claude-sonnet-4",
+      "rationale": "Critical foundation setup requires highest reliability and context retention",
+      "estimatedCost": "$0.60-1.20 (4 increments)",
+      "increments": ["0.1", "0.2", "0.3", "0.4"]
+    },
+    "phase1_fileExplorer": {
+      "primaryModel": "claude-sonnet-4",
+      "rationale": "Complex file system integration needs strong reasoning",
+      "estimatedCost": "$0.90-1.80 (6 increments)",
+      "increments": ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6"]
+    },
+    "phase2_editor": {
+      "primaryModel": "claude-sonnet-4",
+      "rationale": "Monaco Editor integration is complex and critical",
+      "estimatedCost": "$0.90-1.80 (6 increments)",
+      "increments": ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6"]
+    },
+    "phase3_preview": {
+      "primaryModel": "gpt-4-turbo",
+      "rationale": "UI-heavy work benefits from fast iteration",
+      "estimatedCost": "$1.00-2.00 (5 increments)",
+      "increments": ["3.1", "3.2", "3.3", "3.4", "3.5"]
+    },
+    "phase4_fileOps": {
+      "primaryModel": "claude-sonnet-4",
+      "rationale": "Critical file operations need reliability",
+      "estimatedCost": "$0.90-1.80 (6 increments)",
+      "increments": ["4.1", "4.2", "4.3", "4.4", "4.5", "4.6"]
+    },
+    "phase5_search": {
+      "primaryModel": "claude-3.5-sonnet",
+      "rationale": "Search implementation is straightforward, optimize cost",
+      "estimatedCost": "$0.20-0.60 (4 increments)",
+      "increments": ["5.1", "5.2", "5.3", "5.4"]
+    },
+    "phase6_polish": {
+      "primaryModel": "gpt-4o",
+      "rationale": "Optimization and polish benefit from performance focus",
+      "estimatedCost": "$1.00-1.80 (4 increments)",
+      "increments": ["6.1", "6.2", "6.3", "6.4"]
+    }
+  },
+  "totalProjectEstimate": {
+    "totalIncrements": 35,
+    "totalDuration": "525 minutes (8.75 hours)",
+    "estimatedTotalCost": "$5.50-10.00",
+    "averageCostPerIncrement": "$0.16-0.29",
+    "recommendedApproach": "Use claude-sonnet-4 for critical phases, optimize costs with claude-3.5-sonnet for simpler tasks",
+    "costBreakdown": {
+      "phase0": "$0.60-1.20",
+      "phase1": "$0.90-1.80",
+      "phase2": "$0.90-1.80",
+      "phase3": "$1.00-2.00",
+      "phase4": "$0.90-1.80",
+      "phase5": "$0.20-0.60",
+      "phase6": "$1.00-1.80"
+    }
+  },
+  "selectionStrategy": {
+    "strategy": "hybrid",
+    "description": "Use best model for each phase based on complexity, cost, and speed requirements",
+    "implementation": [
+      "1. Agent reads increment details from incremental-development/README.md",
+      "2. Agent determines increment type and phase",
+      "3. Agent checks autoSelectionRules for matching condition",
+      "4. Agent selects model based on rule match or phase recommendation",
+      "5. Agent executes increment with selected model",
+      "6. Agent logs model used in agent-metadata/mcp/decision-log.json"
+    ],
+    "overrideRules": [
+      "If increment fails with selected model, escalate to claude-sonnet-4",
+      "If budget constraint is critical, use claude-3.5-sonnet as default",
+      "If speed is critical, use gpt-4-turbo for all increments",
+      "For experimentation phases, allow manual model override"
+    ]
+  },
+  "qualityMetrics": {
+    "expectedCodeQuality": {
+      "claude-sonnet-4": "95-98%",
+      "gpt-4-turbo": "90-95%",
+      "gpt-4o": "92-97%",
+      "claude-3.5-sonnet": "88-93%"
+    },
+    "expectedTestCoverage": {
+      "claude-sonnet-4": "85-95%",
+      "gpt-4-turbo": "80-90%",
+      "gpt-4o": "80-90%",
+      "claude-3.5-sonnet": "75-85%"
+    },
+    "expectedFirstPassSuccess": {
+      "claude-sonnet-4": "90-95%",
+      "gpt-4-turbo": "85-90%",
+      "gpt-4o": "85-92%",
+      "claude-3.5-sonnet": "80-88%"
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-12-07",
+    "author": "AI Agent System",
+    "purpose": "Provide intelligent model selection for automated end-to-end application development"
+  }
+}

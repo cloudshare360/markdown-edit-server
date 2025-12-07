@@ -1,0 +1,291 @@
+{
+  "executionOrchestration": {
+    "name": "Markdown Editor Auto-Executor",
+    "version": "1.0",
+    "description": "Autonomous agent orchestration system for complete application development",
+    "mode": "autonomous",
+    "humanInterventionRequired": false
+  },
+  "executionWorkflow": {
+    "steps": [
+      {
+        "step": 1,
+        "action": "initialize",
+        "description": "Load project context and validate prerequisites",
+        "tasks": [
+          "Read .agentic/index/workspace-map.json",
+          "Load incremental-development/README.md",
+          "Read agent-metadata/progress/project-status.json",
+          "Validate development environment (Node.js, npm)",
+          "Check git repository status"
+        ],
+        "estimatedTime": "30 seconds",
+        "criticalPath": true
+      },
+      {
+        "step": 2,
+        "action": "selectModel",
+        "description": "Auto-select AI model for current increment",
+        "tasks": [
+          "Identify current increment from increment-tracker.json",
+          "Read increment details from incremental-development/README.md",
+          "Determine increment type (setup, complex, ui, testing, etc.)",
+          "Apply auto-selection rules from models/model-selection.json",
+          "Log model selection in mcp/decision-log.json"
+        ],
+        "estimatedTime": "10 seconds",
+        "criticalPath": true
+      },
+      {
+        "step": 3,
+        "action": "executeIncrement",
+        "description": "Execute 15-minute increment with selected model",
+        "tasks": [
+          "Update increment-tracker.json status to 'in-progress'",
+          "Record start timestamp",
+          "Generate code according to increment specification",
+          "Create/modify files as specified in deliverables",
+          "Write unit tests for all functions/components",
+          "Write integration tests for features",
+          "Run all tests and verify pass rate",
+          "Update feature-registry.json with completed features",
+          "Record end timestamp and actual duration"
+        ],
+        "estimatedTime": "15 minutes",
+        "criticalPath": true
+      },
+      {
+        "step": 4,
+        "action": "verify",
+        "description": "Automated verification and quality gates",
+        "tasks": [
+          "Run npm test (unit tests)",
+          "Run npm test:integration (integration tests)",
+          "Check test coverage > 80%",
+          "Run npm run build (verify no compilation errors)",
+          "Launch app with npm start",
+          "Verify app launches in < 2 seconds",
+          "Check memory usage < 200MB",
+          "Perform automated smoke tests",
+          "Log test results in testing/test-registry.json"
+        ],
+        "estimatedTime": "2 minutes",
+        "criticalPath": true,
+        "qualityGates": {
+          "testCoverage": ">= 80%",
+          "testPassRate": "100%",
+          "buildSuccess": true,
+          "appLaunches": true,
+          "startupTime": "< 2s",
+          "memoryUsage": "< 200MB",
+          "consoleErrors": 0
+        }
+      },
+      {
+        "step": 5,
+        "action": "commit",
+        "description": "Automated git commit with structured message",
+        "tasks": [
+          "Stage all changes with git add",
+          "Generate commit message from increment details",
+          "Commit with format: 'INCREMENT X.Y: [Title] - [Deliverable]'",
+          "Tag commit with increment ID",
+          "Update conversation-log.json with commit reference"
+        ],
+        "estimatedTime": "10 seconds",
+        "criticalPath": false
+      },
+      {
+        "step": 6,
+        "action": "updateMetadata",
+        "description": "Update all tracking metadata",
+        "tasks": [
+          "Mark increment as 'completed' in increment-tracker.json",
+          "Calculate efficiency: (15 min / actual time) * 100%",
+          "Update project-status.json with new completion %",
+          "Update feature-registry.json with feature status",
+          "Log decisions made in decision-log.json",
+          "Record model performance metrics",
+          "Update conversation-log.json with increment summary"
+        ],
+        "estimatedTime": "20 seconds",
+        "criticalPath": false
+      },
+      {
+        "step": 7,
+        "action": "nextIncrement",
+        "description": "Prepare for next increment or complete project",
+        "tasks": [
+          "Check if all 35 increments completed",
+          "If not complete: Load next increment and goto step 2",
+          "If complete: Generate final project report",
+          "If complete: Run full test suite and performance benchmarks",
+          "If complete: Generate deployment package"
+        ],
+        "estimatedTime": "10 seconds",
+        "criticalPath": true
+      }
+    ],
+    "totalCycleTime": "~18 minutes per increment (15 min dev + 3 min overhead)",
+    "totalProjectTime": "~630 minutes (10.5 hours) for 35 increments",
+    "parallelization": {
+      "enabled": false,
+      "reason": "Increments have dependencies and must execute sequentially"
+    }
+  },
+  "errorHandling": {
+    "retryStrategy": {
+      "maxRetries": 3,
+      "retryDelay": "5 seconds",
+      "backoffMultiplier": 2
+    },
+    "failureEscalation": [
+      {
+        "condition": "Test coverage < 80%",
+        "action": "Regenerate tests with primary model (claude-sonnet-4)",
+        "priority": "high"
+      },
+      {
+        "condition": "Tests failing",
+        "action": "Analyze failures, fix code, re-run tests",
+        "maxAttempts": 3,
+        "priority": "critical"
+      },
+      {
+        "condition": "Build fails",
+        "action": "Analyze compilation errors, fix syntax/types, rebuild",
+        "maxAttempts": 3,
+        "priority": "critical"
+      },
+      {
+        "condition": "App doesn't launch",
+        "action": "Check dependencies, verify configuration, fix runtime errors",
+        "maxAttempts": 3,
+        "priority": "critical"
+      },
+      {
+        "condition": "Performance targets not met",
+        "action": "Profile and optimize, re-test",
+        "maxAttempts": 2,
+        "priority": "medium"
+      },
+      {
+        "condition": "All retries exhausted",
+        "action": "Log incident, notify human, pause execution",
+        "priority": "critical"
+      }
+    ],
+    "fallbackBehavior": {
+      "onCriticalFailure": "pause and notify",
+      "onMinorIssue": "log and continue",
+      "humanNotificationThreshold": "3 consecutive failures"
+    }
+  },
+  "monitoring": {
+    "realTimeMetrics": [
+      "Current increment ID",
+      "Model in use",
+      "Time elapsed in current increment",
+      "Tests passed/failed",
+      "Code coverage percentage",
+      "Memory usage",
+      "Overall completion percentage"
+    ],
+    "logging": {
+      "level": "detailed",
+      "destinations": [
+        "agent-metadata/mcp/agent-context.json",
+        "agent-metadata/conversations/conversation-log.json",
+        "console output"
+      ],
+      "logRotation": false
+    },
+    "progressReporting": {
+      "frequency": "per-increment",
+      "format": "json",
+      "includeMetrics": true,
+      "destination": "agent-metadata/progress/"
+    }
+  },
+  "executionModes": {
+    "fullAuto": {
+      "description": "Complete end-to-end autonomous execution of all 35 increments",
+      "humanIntervention": "none",
+      "duration": "~10.5 hours",
+      "recommended": true,
+      "prerequisites": [
+        "Development environment validated",
+        "Git repository initialized",
+        "All metadata templates in place",
+        "Model API keys configured"
+      ]
+    },
+    "semiAuto": {
+      "description": "Execute increments autonomously but pause after each phase for review",
+      "humanIntervention": "phase boundaries (7 times)",
+      "duration": "~11 hours (includes review time)",
+      "recommended": false,
+      "pauseAfter": ["phase0", "phase1", "phase2", "phase3", "phase4", "phase5", "phase6"]
+    },
+    "guided": {
+      "description": "Execute each increment with confirmation",
+      "humanIntervention": "before each increment (35 times)",
+      "duration": "~13-15 hours (includes confirmation delays)",
+      "recommended": false
+    }
+  },
+  "currentConfiguration": {
+    "mode": "fullAuto",
+    "startFromIncrement": "0.1",
+    "stopAtIncrement": "6.4",
+    "autoCommit": true,
+    "autoTest": true,
+    "requireManualVerification": false,
+    "pauseOnError": true,
+    "notifyOnCompletion": true
+  },
+  "commandInterface": {
+    "startExecution": {
+      "command": "npm run agent:start",
+      "description": "Start autonomous execution from current increment",
+      "parameters": {
+        "mode": "fullAuto | semiAuto | guided",
+        "startFrom": "increment ID (e.g., '0.1')",
+        "stopAt": "increment ID (e.g., '6.4')"
+      }
+    },
+    "pauseExecution": {
+      "command": "npm run agent:pause",
+      "description": "Pause after current increment completes"
+    },
+    "resumeExecution": {
+      "command": "npm run agent:resume",
+      "description": "Resume from last completed increment"
+    },
+    "statusCheck": {
+      "command": "npm run agent:status",
+      "description": "Display current execution status and progress"
+    },
+    "rollback": {
+      "command": "npm run agent:rollback [incrementId]",
+      "description": "Rollback to specific increment and restart from there"
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2025-12-07",
+    "compatibleModels": [
+      "claude-sonnet-4",
+      "claude-3.5-sonnet",
+      "gpt-4-turbo",
+      "gpt-4o"
+    ],
+    "requiredFiles": [
+      ".agentic/index/workspace-map.json",
+      ".agentic/models/model-selection.json",
+      "incremental-development/README.md",
+      "agent-metadata/progress/increment-tracker.json",
+      "agent-metadata/progress/project-status.json"
+    ]
+  }
+}

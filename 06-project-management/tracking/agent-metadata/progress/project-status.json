@@ -1,0 +1,98 @@
+{
+  "project": {
+    "name": "Markdown Edit Server",
+    "version": "0.0.1",
+    "startDate": "2025-12-07",
+    "targetReleaseDate": "2026-01-15",
+    "currentPhase": "Phase 0: Bootstrap",
+    "currentIncrement": "INC-0.2",
+    "overallProgress": 3,
+    "health": "green",
+    "blockers": [],
+    "lastUpdated": "2025-12-07T09:55:00Z",
+    "notes": "INC-0.1 completed: Electron + React + Vite + TS scaffold and SDLC workspace reorg with updated configs/scripts. Pending: run npm run dev smoke test at next session. Moving to INC-0.2 (basic 3-pane layout skeleton)."
+  },
+  "phases": [
+    {
+      "id": "phase-0",
+      "name": "Phase 0: Bootstrap",
+      "status": "in-progress",
+      "progress": 25,
+      "completedIncrements": 1,
+      "totalIncrements": 4,
+      "timeSpent": "45min",
+      "estimatedTime": "60min",
+      "startDate": "2025-12-07T09:00:00Z",
+      "endDate": null
+    },
+    {
+      "id": "phase-1",
+      "name": "Phase 1: File Explorer",
+      "status": "not-started",
+      "progress": 0,
+      "completedIncrements": 0,
+      "totalIncrements": 6,
+      "timeSpent": "0min",
+      "estimatedTime": "90min"
+    },
+    {
+      "id": "phase-2",
+      "name": "Phase 2: Basic Editor",
+      "status": "not-started",
+      "progress": 0,
+      "completedIncrements": 0,
+      "totalIncrements": 6,
+      "timeSpent": "0min",
+      "estimatedTime": "90min"
+    },
+    {
+      "id": "phase-3",
+      "name": "Phase 3: Preview & TOC",
+      "status": "not-started",
+      "progress": 0,
+      "completedIncrements": 0,
+      "totalIncrements": 5,
+      "timeSpent": "0min",
+      "estimatedTime": "75min"
+    },
+    {
+      "id": "phase-4",
+      "name": "Phase 4: File Operations",
+      "status": "not-started",
+      "progress": 0,
+      "completedIncrements": 0,
+      "totalIncrements": 6,
+      "timeSpent": "0min",
+      "estimatedTime": "90min"
+    },
+    {
+      "id": "phase-5",
+      "name": "Phase 5: Search",
+      "status": "not-started",
+      "progress": 0,
+      "completedIncrements": 0,
+      "totalIncrements": 4,
+      "timeSpent": "0min",
+      "estimatedTime": "60min"
+    },
+    {
+      "id": "phase-6",
+      "name": "Phase 6: Polish",
+      "status": "not-started",
+      "progress": 0,
+      "completedIncrements": 0,
+      "totalIncrements": 4,
+      "timeSpent": "0min",
+      "estimatedTime": "60min"
+    }
+  ],
+  "metrics": {
+    "totalIncrements": 35,
+    "completedIncrements": 1,
+    "totalEstimatedTime": "525min",
+    "actualTimeSpent": "45min",
+    "efficiency": 100,
+    "testCoverage": 0,
+    "passRate": 100
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "workspaceStructure": {
+    "rootPath": "d:/working/Sri/ai-workspace/chatgpt/markdown-edit-server",
+    "lastIndexed": "2025-12-07T00:00:00Z",
+    "totalFiles": 15,
+    "totalDirectories": 11,
+    "indexVersion": "1.0"
+  },
+  "directoryIndex": {
+    "documentation": {
+      "path": "/",
+      "purpose": "Project documentation and requirements",
+      "files": [
+        {
+          "name": "requirements.md",
+          "purpose": "Main requirements document with tech stack",
+          "type": "requirement",
+          "priority": "critical",
+          "size": "large",
+          "lastModified": "2025-12-07"
+        },
+        {
+          "name": "technical-analysis.md",
+          "purpose": "Deep technical analysis and tech stack justification",
+          "type": "analysis",
+          "priority": "high",
+          "size": "large",
+          "lastModified": "2025-12-07"
+        },
+        {
+          "name": "advanced-features-requirements.md",
+          "purpose": "Future features roadmap (post-MVP)",
+          "type": "requirement",
+          "priority": "low",
+          "size": "medium",
+          "lastModified": "2025-12-07"
+        },
+        {
+          "name": "AI-AGENT-GUIDE.md",
+          "purpose": "Master guide for AI agents with workflow",
+          "type": "guide",
+          "priority": "critical",
+          "size": "large",
+          "lastModified": "2025-12-07"
+        }
+      ]
+    },
+    "incrementalDevelopment": {
+      "path": "/incremental-development",
+      "purpose": "15-minute increment specifications",
+      "files": [
+        {
+          "name": "README.md",
+          "purpose": "Complete 35-increment development plan",
+          "type": "plan",
+          "priority": "critical",
+          "size": "very-large",
+          "lastModified": "2025-12-07",
+          "structure": {
+            "totalIncrements": 35,
+            "totalPhases": 7,
+            "estimatedDuration": "525 minutes",
+            "phases": [
+              {"id": "phase0", "name": "Bootstrap", "increments": 4, "duration": "60min"},
+              {"id": "phase1", "name": "File Explorer", "increments": 6, "duration": "90min"},
+              {"id": "phase2", "name": "Basic Editor", "increments": 6, "duration": "90min"},
+              {"id": "phase3", "name": "Preview & TOC", "increments": 5, "duration": "75min"},
+              {"id": "phase4", "name": "File Operations", "increments": 6, "duration": "90min"},
+              {"id": "phase5", "name": "Search", "increments": 4, "duration": "60min"},
+              {"id": "phase6", "name": "Polish", "increments": 4, "duration": "60min"}
+            ]
+          }
+        }
+      ]
+    },
+    "agentMetadata": {
+      "path": "/agent-metadata",
+      "purpose": "Agent tracking and context management",
+      "subdirectories": [
+        {
+          "name": "features",
+          "path": "/agent-metadata/features",
+          "purpose": "Feature registry and tracking",
+          "files": [
+            {
+              "name": "feature-registry.json",
+              "purpose": "Catalog of all features with status",
+              "type": "registry",
+              "updateFrequency": "per-increment"
+            }
+          ]
+        },
+        {
+          "name": "conversations",
+          "path": "/agent-metadata/conversations",
+          "purpose": "User-agent interaction logs",
+          "files": [
+            {
+              "name": "conversation-log.json",
+              "purpose": "Complete conversation history with context",
+              "type": "log",
+              "updateFrequency": "per-increment"
+            }
+          ]
+        },
+        {
+          "name": "progress",
+          "path": "/agent-metadata/progress",
+          "purpose": "Project and increment progress tracking",
+          "files": [
+            {
+              "name": "project-status.json",
+              "purpose": "Overall project progress and metrics",
+              "type": "status",
+              "updateFrequency": "per-increment"
+            },
+            {
+              "name": "increment-tracker.json",
+              "purpose": "Detailed tracking of each 15-min increment",
+              "type": "tracker",
+              "updateFrequency": "per-increment"
+            }
+          ]
+        },
+        {
+          "name": "mcp",
+          "path": "/agent-metadata/mcp",
+          "purpose": "Model Context Protocol data",
+          "files": [
+            {
+              "name": "agent-context.json",
+              "purpose": "Current working context for agents",
+              "type": "context",
+              "updateFrequency": "per-increment"
+            },
+            {
+              "name": "decision-log.json",
+              "purpose": "Technical decisions and rationale",
+              "type": "log",
+              "updateFrequency": "as-needed"
+            }
+          ]
+        },
+        {
+          "name": "testing",
+          "path": "/agent-metadata/testing",
+          "purpose": "Test registry and results",
+          "files": [
+            {
+              "name": "test-registry.json",
+              "purpose": "Catalog of all tests with results",
+              "type": "registry",
+              "updateFrequency": "per-increment"
+            }
+          ]
+        }
+      ]
+    },
+    "agentic": {
+      "path": "/.agentic",
+      "purpose": "Agentic development system configuration",
+      "subdirectories": [
+        {
+          "name": "models",
+          "path": "/.agentic/models",
+          "purpose": "AI model selection and recommendations",
+          "files": [
+            {
+              "name": "model-selection.json",
+              "purpose": "Model recommendations and auto-selection rules",
+              "type": "configuration",
+              "critical": true
+            }
+          ]
+        },
+        {
+          "name": "execution",
+          "path": "/.agentic/execution",
+          "purpose": "Execution orchestration and automation",
+          "files": [
+            {
+              "name": "auto-executor.json",
+              "purpose": "Autonomous execution workflow and configuration",
+              "type": "configuration",
+              "critical": true
+            }
+          ]
+        },
+        {
+          "name": "index",
+          "path": "/.agentic/index",
+          "purpose": "Workspace indexing and navigation",
+          "files": [
+            {
+              "name": "workspace-map.json",
+              "purpose": "Complete workspace structure and file index (this file)",
+              "type": "index",
+              "critical": true
+            },
+            {
+              "name": "quick-reference.md",
+              "purpose": "Quick reference guide for agents",
+              "type": "guide",
+              "critical": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "fileTypeIndex": {
+    "requirements": [
+      "requirements.md",
+      "advanced-features-requirements.md"
+    ],
+    "analysis": [
+      "technical-analysis.md"
+    ],
+    "guides": [
+      "AI-AGENT-GUIDE.md",
+      ".agentic/index/quick-reference.md"
+    ],
+    "plans": [
+      "incremental-development/README.md"
+    ],
+    "configuration": [
+      ".agentic/models/model-selection.json",
+      ".agentic/execution/auto-executor.json"
+    ],
+    "tracking": [
+      "agent-metadata/progress/project-status.json",
+      "agent-metadata/progress/increment-tracker.json",
+      "agent-metadata/features/feature-registry.json",
+      "agent-metadata/testing/test-registry.json"
+    ],
+    "logs": [
+      "agent-metadata/conversations/conversation-log.json",
+      "agent-metadata/mcp/decision-log.json"
+    ],
+    "context": [
+      "agent-metadata/mcp/agent-context.json"
+    ]
+  },
+  "priorityIndex": {
+    "critical": {
+      "description": "Must read before starting any development",
+      "files": [
+        "AI-AGENT-GUIDE.md",
+        "incremental-development/README.md",
+        ".agentic/models/model-selection.json",
+        ".agentic/execution/auto-executor.json",
+        ".agentic/index/workspace-map.json",
+        "agent-metadata/progress/increment-tracker.json"
+      ]
+    },
+    "high": {
+      "description": "Important context and requirements",
+      "files": [
+        "requirements.md",
+        "technical-analysis.md",
+        "agent-metadata/progress/project-status.json",
+        "agent-metadata/features/feature-registry.json"
+      ]
+    },
+    "medium": {
+      "description": "Supporting documentation and logs",
+      "files": [
+        "agent-metadata/mcp/agent-context.json",
+        "agent-metadata/mcp/decision-log.json",
+        "agent-metadata/testing/test-registry.json"
+      ]
+    },
+    "low": {
+      "description": "Future planning and conversation history",
+      "files": [
+        "advanced-features-requirements.md",
+        "agent-metadata/conversations/conversation-log.json"
+      ]
+    }
+  },
+  "navigationPaths": {
+    "startDevelopment": [
+      "1. Read: .agentic/index/quick-reference.md",
+      "2. Read: incremental-development/README.md",
+      "3. Check: agent-metadata/progress/increment-tracker.json",
+      "4. Select Model: .agentic/models/model-selection.json",
+      "5. Execute: Follow .agentic/execution/auto-executor.json workflow"
+    ],
+    "checkProgress": [
+      "1. Read: agent-metadata/progress/project-status.json",
+      "2. Read: agent-metadata/progress/increment-tracker.json",
+      "3. Review: agent-metadata/testing/test-registry.json"
+    ],
+    "resumeSession": [
+      "1. Read: agent-metadata/mcp/agent-context.json",
+      "2. Read: agent-metadata/conversations/conversation-log.json",
+      "3. Check: agent-metadata/progress/increment-tracker.json (find last completed)",
+      "4. Load: Next increment from incremental-development/README.md",
+      "5. Continue: Execute next increment"
+    ],
+    "troubleshoot": [
+      "1. Check: agent-metadata/mcp/decision-log.json (recent decisions)",
+      "2. Review: agent-metadata/testing/test-registry.json (test failures)",
+      "3. Analyze: agent-metadata/conversations/conversation-log.json (context)",
+      "4. Reference: AI-AGENT-GUIDE.md (best practices)"
+    ]
+  },
+  "searchIndex": {
+    "byTopic": {
+      "modelSelection": [".agentic/models/model-selection.json"],
+      "incrementPlan": ["incremental-development/README.md"],
+      "techStack": ["requirements.md", "technical-analysis.md"],
+      "testing": ["agent-metadata/testing/test-registry.json", "AI-AGENT-GUIDE.md"],
+      "progress": ["agent-metadata/progress/project-status.json", "agent-metadata/progress/increment-tracker.json"],
+      "automation": [".agentic/execution/auto-executor.json"],
+      "features": ["agent-metadata/features/feature-registry.json"],
+      "decisions": ["agent-metadata/mcp/decision-log.json"]
+    },
+    "byPhase": {
+      "phase0": ["incremental-development/README.md (lines 50-120)"],
+      "phase1": ["incremental-development/README.md (lines 121-250)"],
+      "phase2": ["incremental-development/README.md (lines 251-380)"],
+      "phase3": ["incremental-development/README.md (lines 381-490)"],
+      "phase4": ["incremental-development/README.md (lines 491-620)"],
+      "phase5": ["incremental-development/README.md (lines 621-720)"],
+      "phase6": ["incremental-development/README.md (lines 721-850)"]
+    }
+  },
+  "metadata": {
+    "indexingStrategy": "manual",
+    "updateFrequency": "on workspace changes",
+    "version": "1.0",
+    "lastUpdated": "2025-12-07",
+    "maintainer": "AI Agent System"
+  }
+}
